@@ -1,3 +1,27 @@
+# ---------------------------------------------------------------------------
+# Identifier Display Normalization Rules – Overview
+#
+# These rules extract identifier values from MARC fields and map them to the
+# Primo PNX display.identifier field so they appear in the Identifier section
+# of the Primo/Primo VE/NDE record display.
+#
+# All rules follow the same pattern:
+#
+#   1. Detect a MARC identifier field (ISBN, ISSN, OCLC, etc.).
+#   2. Copy the value into a temporary variable (TEMP1).
+#   3. Add a Primo display prefix ($$C…$$V) that labels the identifier type.
+#   4. Write the formatted value to pnx.display.identifier.
+#
+# The $$C prefix defines the identifier label (e.g., ISBN, ISSN, OCLC),
+# and $$V contains the actual identifier value.
+#
+# Example display result in Primo:
+#   ISBN   9781234567890
+#   ISSN   1234-5678
+#   OCLC   (OCoLC)12345678
+#
+# ---------------------------------------------------------------------------
+
 rule "Primo VE - Identifier 020"
 	when
 		MARC is "020"."a"
@@ -88,4 +112,5 @@ rule "Primo VE - Identifier 010"
 		set TEMP"1" to MARC "010"."a"
 		add prefix (TEMP"1","$$CLC$$V")
 		create pnx."display"."identifier" with TEMP"1"
+
 end
