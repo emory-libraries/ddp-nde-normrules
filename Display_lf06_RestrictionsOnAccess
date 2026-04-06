@@ -1,0 +1,6 @@
+rule "Primo VE - Lds06"
+	when
+		MARC "506" has any "a,3"
+	then
+		create pnx."display"."lds06" with MARC "506" subfields "a,3"
+end
