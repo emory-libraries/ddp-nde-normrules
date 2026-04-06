@@ -1,0 +1,23 @@
+rule "Primo VE Marc - Lsr77"
+priority 30
+when
+MARC is "502"."c"
+then
+set pnx."search"."lsr77" to MARC "502"."c"
+end
+
+rule "Primo VE Marc - Lsr77 - 2"
+priority 20
+when
+MARC is "260"."b"
+then
+set pnx."search"."lsr77" to MARC "260"."b"
+end
+
+rule "Primo VE Marc - Lsr77 - 3"
+priority 10
+when
+MARC is "264"."b"
+then
+set pnx."search"."lsr77" to MARC "264"."b"
+end
