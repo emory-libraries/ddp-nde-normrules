@@ -19,7 +19,7 @@ MARC is "050"."a" AND MARC."050"."a" match "B.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - B - Philosophy, Psychology, Religion")
+add suffix (TEMP"1"," - Philosophy, Psychology, Religion")
 create pnx."search"."lsr02" with TEMP"1"
 end
 ############################################
@@ -31,7 +31,7 @@ MARC is "050"."a" AND MARC."050"."a" match "C.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - C - Historical Sciences (Archaeology, Genealogy)")
+add suffix (TEMP"1"," - Historical Sciences (Archaeology, Genealogy)")
 create pnx."search"."lsr02" with TEMP"1"
 end
 #################################################
@@ -56,7 +56,7 @@ MARC is "050"."a" AND MARC."050"."a" match "E.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - History of the Americas(General)")
+add suffix (TEMP"1"," - History of the Americas (General)")
 create pnx."search"."lsr02" with TEMP"1"
 end
 ##################################################
@@ -68,7 +68,7 @@ MARC is "050"."a" AND MARC."050"."a" match "F.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - History of the Americas(Local)")
+add suffix (TEMP"1"," - History of the Americas (Local)")
 create pnx."search"."lsr02" with TEMP"1"
 end
 ##################################################
@@ -80,7 +80,7 @@ MARC is "050"."a" AND MARC."050"."a" match "G.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - G - Geography, Anthropology, Recreation")
+add suffix (TEMP"1"," - Geography, Anthropology, Recreation")
 create pnx."search"."lsr02" with TEMP"1"
 end
 ##################################################
@@ -164,7 +164,7 @@ MARC is "050"."a" AND MARC."050"."a" match "P.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - P - Language & Literature")
+add suffix (TEMP"1"," - Language & Literature")
 create pnx."search"."lsr02" with TEMP"1"
 end
 ####################################################
@@ -248,7 +248,7 @@ MARC is "050"."a" AND MARC."050"."a" match "Z.*"
 		#create pnx."display"."lds02" with MARC "090"."a"
 set TEMP"1" to MARC "050"."a"
 replace string by string (TEMP"1","(?<!^).*","")
-add suffix (TEMP"1"," - Z - Bibliography, Library Science, Information Resources")
+add suffix (TEMP"1"," - Bibliography, Library Science, Information Resources")
 create pnx."search"."lsr02" with TEMP"1"
 end
 ####################################################
