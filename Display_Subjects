@@ -108,7 +108,7 @@ rule "Primo VE Display- Subject 650"
 	when
 		MARC."650" has any "a-z" AND NOT
 		MARC."650".ind"2"  equals "2" AND NOT
-                MARC."650".ind"2"  equals "6"
+        MARC."650".ind"2"  equals "6"
 	then
 		set TEMP"1" to MARC."650" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
 		set TEMP"2" to MARC."650" sub without sorting "x-z" delimited by " -- "
