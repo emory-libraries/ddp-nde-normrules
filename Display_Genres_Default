@@ -1,0 +1,214 @@
+rule "Primo VE - Genre 600"
+	when
+        MARC is "600"."v"
+	then
+		set TEMP"1" to MARC."600"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 610"
+	when
+        MARC is "610"."v"
+	then
+        set TEMP"1" to MARC."610"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 611"
+	when
+        MARC is "611"."v"
+	then
+        set TEMP"1" to MARC."611"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 630"
+	when
+        MARC is "630"."v"
+	then
+	    set TEMP"1" to MARC."630"."v"
+        kormarc remove nonfiling brackets MARC."630" sourcetag "630" from TEMP"1"
+        remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 648"
+	when
+        MARC is "648"."v"
+	then
+        set TEMP"1" to MARC."648"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 650"
+	when
+        MARC is "650"."v"
+	then
+        set TEMP"1" to MARC."650"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 651"
+	when
+        MARC is "651"."v"
+	then
+        set TEMP"1" to MARC."651"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 654"
+	when
+        MARC is "654"."v"
+	then
+        set TEMP"1" to MARC."654"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 655"
+	when
+		MARC."655" has any "a-z" AND NOT
+		MARC."655".ind"2" equals "2"
+	then
+		set TEMP"1" to MARC."655" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
+		set TEMP"2" to MARC."655" sub without sorting "v,x-z" delimited by " -- "
+		remove substring using regex (TEMP"2","\\.+$")
+		concatenate with delimiter (TEMP"1",TEMP"2"," -- ")
+		set TEMP"3" to multilingual by "655" "Genre" "display"
+		concatenate with delimiter (TEMP"1",TEMP"3","")
+		create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 656"
+	when
+        MARC is "656"."v"
+	then
+        set TEMP"1" to MARC."656"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 657"
+	when
+        MARC is "657"."v"
+	then
+        set TEMP"1" to MARC."657"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-600"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "600-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-610"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "610-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-611"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "611-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-630"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "630-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-648"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "648-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-650"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "650-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-651"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "651-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-654"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "654-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-655"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "655-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-656"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "656-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
+
+rule "Primo VE - Genre 880-657"
+	when
+        MARC is "880"."v" AND
+        MARC."880"."6" match "657-.*"
+	then
+        set TEMP"1" to MARC."880"."v" 
+		remove substring using regex (TEMP"1","\\.+$")
+        create pnx."display"."genre" with TEMP"1"
+end
