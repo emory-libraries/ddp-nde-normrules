@@ -47,7 +47,8 @@ end
 rule "Primo VE - Genre 650"
 	when
         MARC is "650"."v" AND NOT
-        MARC."650".ind"2" equals "6"
+        MARC."650".ind"2" equals "6" AND NOT
+        MARC."650"."2" match "fast"
 	then
         set TEMP"1" to MARC."650"."v" 
 		remove substring using regex (TEMP"1","\\.+$")
@@ -76,7 +77,7 @@ rule "Primo VE - Genre 655"
 	when
 		MARC."655" has any "a-z" AND NOT
 		MARC."655".ind"2" equals "2" AND NOT
-        MARC."655"."2" match "rvmgf"
+                MARC."655"."2" match "rvmgf"
 	then
 		set TEMP"1" to MARC."655" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
 		set TEMP"2" to MARC."655" sub without sorting "v,x-z" delimited by " -- "
