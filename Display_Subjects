@@ -85,8 +85,14 @@ end
 
 rule "Primo VE Display- Subject 648"
 	when
-		MARC."648" has any "a-z" AND NOT
-		MARC."648".ind"2"  equals "2"
+		MARC."648" has any "a-z"  AND NOT
+		MARC."648".ind"2"  equals "1" AND NOT
+		MARC."648".ind"2"  equals "2" AND NOT
+		MARC."648".ind"2"  equals "3" AND NOT
+		MARC."648".ind"2"  equals "4" AND NOT
+		MARC."648".ind"2"  equals "5" AND NOT
+                MARC."648".ind"2"  equals "6" AND NOT
+                MARC."648"."2" match "fast"
 	then
 		set TEMP"1" to MARC."648" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
 		set TEMP"2" to MARC."648" sub without sorting "x-z" delimited by " -- "
@@ -112,8 +118,8 @@ rule "Primo VE Display- Subject 650"
 		MARC."650".ind"2"  equals "3" AND NOT
 		MARC."650".ind"2"  equals "4" AND NOT
 		MARC."650".ind"2"  equals "5" AND NOT
-        MARC."650".ind"2"  equals "6" AND NOT
-        MARC."650"."2" match "fast"
+                MARC."650".ind"2"  equals "6" AND NOT
+                MARC."650"."2" match "fast"
 	then
 		set TEMP"1" to MARC."650" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
 		set TEMP"2" to MARC."650" sub without sorting "x-z" delimited by " -- "
@@ -133,8 +139,14 @@ end
 
 rule "Prima_Display - Subject 651"
 	when
-		MARC."651" has any "a-z" AND NOT
-		MARC."651".ind"2"  equals "2"  
+		MARC."651" has any "a-z"  AND NOT
+		MARC."651".ind"2"  equals "1" AND NOT
+		MARC."651".ind"2"  equals "2" AND NOT
+		MARC."651".ind"2"  equals "3" AND NOT
+		MARC."651".ind"2"  equals "4" AND NOT
+		MARC."651".ind"2"  equals "5" AND NOT
+                MARC."651".ind"2"  equals "6" AND NOT
+                MARC."651"."2" match "fast"  
 	then
 		set TEMP"1" to MARC."651" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
 		set TEMP"2" to MARC."651" sub without sorting "x-z" delimited by " -- "
