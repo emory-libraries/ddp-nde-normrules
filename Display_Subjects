@@ -119,7 +119,8 @@ rule "Primo VE Display- Subject 650"
 		MARC."650".ind"2"  equals "4" AND NOT
 		MARC."650".ind"2"  equals "5" AND NOT
                 MARC."650".ind"2"  equals "6" AND NOT
-                MARC."650"."2" match "fast"
+                MARC."650"."2" match "fast" AND NOT
+                MARC."650"."2" match "gnd"
 	then
 		set TEMP"1" to MARC."650" subfields "a-u,w" delimited by " " remove substring using regex "\\.+$"
 		set TEMP"2" to MARC."650" sub without sorting "x-z" delimited by " -- "
@@ -389,6 +390,7 @@ end
 rule "Primo VE Display- Subject 880-650"
 	when
 		MARC."880" has any "a-z" AND NOT
+                MARC."880"."2" match "gnd"
 		MARC."880".ind"2"  equals "2" AND
 		MARC."880"."6" match "650-.*"
 	then
